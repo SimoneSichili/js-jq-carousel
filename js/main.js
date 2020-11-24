@@ -26,11 +26,25 @@ $(document).ready(function () {
         }
     );
 
-    // END JS
-});
+    // Evento al click sui pallini
+    $(".nav > i").click(
+        function() { 
+            var currentImage;
+            var activeImage = $(".images img.active");
+            var activeCircle = $(".nav i.active");
+            
+            activeImage.removeClass("active");
+            activeCircle.removeClass("active");       
+            
+            $(this).addClass("active");
+            currentImage = $(this).index();
+            $(".images > img").eq(currentImage).addClass("active");
+        }
+    );
+
 
     // MY FUNCTIONS-----------------------------------------------
-    
+
     function prevImage() {
         var activeImage = $(".images img.active");
         var activeCircle = $(".nav i.active");
@@ -66,3 +80,6 @@ $(document).ready(function () {
             activeCircle.next().addClass("active");
         }
     }
+
+    // END JS
+});
